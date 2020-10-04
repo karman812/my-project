@@ -14,7 +14,7 @@ const initialState = {
         {id: 4, name: "Natasha"},
         {id: 5, name: "Valera"},
         {id: 6, name: "Grisha"},],
-    newMessageBody: 'ddd'
+    newMessageBody: ''
 }
 
  const dialogsReducer = (state = initialState, action) => {

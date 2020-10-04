@@ -1,5 +1,6 @@
 import * as axios from "axios";
 import React from 'react';
+
 const baseUrl = 'https://social-network.samuraijs.com/api/1.0'
 
 export const getUsers = (currentPage = 1, pageSize = 20) => {
@@ -7,6 +8,6 @@ export const getUsers = (currentPage = 1, pageSize = 20) => {
         return response.data
     })
 }
-export const getProfile = (userId) =>{
+export const getProfile = (userId) => {
     return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-    }
+}

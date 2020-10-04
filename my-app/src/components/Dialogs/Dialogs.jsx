@@ -3,6 +3,7 @@ import styles from "./Dialogs.module.css";
 import {Col, Row} from "react-bootstrap";
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {Redirect} from "react-router-dom";
 
 
 const Dialogs = (props) => {
@@ -27,7 +28,9 @@ const Dialogs = (props) => {
         let body = event.target.value
         props.updateNewMessageBody(body)
     }
-
+    if(props.isAuth == false) return (
+        <Redirect to='/login'/>
+    )
     return (
         <Row>
             <Col xs='12' className={styles.dialogs}>

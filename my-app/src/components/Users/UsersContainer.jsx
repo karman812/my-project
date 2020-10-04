@@ -9,6 +9,7 @@ import Users from "./Users";
 import Preloader from "../common/preloader/Preloader";
 import styles from "./users.module.css"
 import {compose} from "redux";
+import {Redirect} from "react-router-dom";
 
 
 
@@ -22,6 +23,9 @@ class UsersContainer extends React.Component {
     }
 
     render() {
+        if(this.props.isAuth == false) return (
+            <Redirect to='/login'/>
+        )
         return <>
             {this.props.isFetching ? <Preloader classNAme={styles.preloader}/> : null}
             <Users totalUsersCount={this.props.totalUsersCount}
@@ -42,7 +46,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        isAuth: state.authPage.toggle
     }
 }
 compose(connect(mapStateToProps, {follow, unfollow, setCurrentPage,getUsersThunkCreator}))(UsersContainer)

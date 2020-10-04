@@ -19,7 +19,8 @@ let mapDispatchToProps = (dispatch) =>{
 }
 let mapStateToProps = (state) =>{
     return {
-        messagesPage: state.messagesPage
+        messagesPage: state.messagesPage,
+        isAuth: state.authPage.toggle
     }
 }
 
